@@ -1,4 +1,4 @@
-# FreeCodeCamp-Metric-Imperial-Converter
+# FreeCodeCamp Metric Imperial Converter
 
 > First project of five required to earn the **Information Security and Quality Assurance** certification @freeCodeCamp.
 
@@ -116,4 +116,27 @@ From imperial to metric, it is possible to describe a few unit of measures as fo
 | (long) ton    | tonnes    | 1.016                  |
 | (short) ton   | tonnes    | 0.907                  |
 
-There should be perhaps shorter versions for the square and cubic versions of the length units. Something akin to `sinch`, `cinch`. For the last couple unit of measures in the mass section a differentiation is also warranted, similarly to `lton` and `ston`.
+## Update
+
+Working on the front-end version of the application I opted for a smaller subset of unit of measures. The script functions as follows:
+
+- detail the conversion in an array of objects. Each object detailing the unit and conversion measures:
+
+  ```js
+  const TUC = [
+    {
+      unit: ["inch", "mm"],
+      conversion: [1, 25.4]
+    },
+    {
+      unit: ["foot", "m"],
+      conversion: [1, 0.3048]
+    }
+  ];
+  ```
+
+- retrieve the values from the input elements;
+
+- based on these values, call a function to convert the measure.
+
+The entire process is well-commented in the `script.js` file found in the **FrontEnd** folder. There's some ingenuity there.
