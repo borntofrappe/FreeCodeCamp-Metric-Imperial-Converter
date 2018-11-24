@@ -171,3 +171,35 @@ Theoretically, it is also be possible to set both security measures one at a tim
 app.use(helmet.noSniff());
 app.use(helmet.xssFilter());
 ```
+
+### Express
+
+A route is set up at the prescribed endpoint, `api/convert`. Here the application needs to catch values included in a query string, with an argument labeled `input`, as in `api/convert?input`.
+
+This feat can be achieved as follows:
+
+```js
+// listen for a get request at the prescribed endpoint
+app.get("/api/convert", (req, res, next) => {
+  // consider the query string argument, to find a value for _input_
+  const { input } = req.query;
+  // do something with the input
+  res.send(input);
+});
+```
+
+Based on this value, a response needs to be sent as follows:
+
+- `invalid unit` if the unit of measure is not between the ones contemplated by the application. It is here possible to consider an array of values with the unit of measures and the `includes()` method.
+
+- `invalid number` if the number is not valid... debatable what an invalid number might be.
+
+- `invalid number and unit` if both occurrences hold true. Again, given my doubts regarding the previous instance, I cannot fathom a situation where both are invalid.
+
+- an object if the query string matches the prescribed values, an (optional) number and a unit of measure.
+
+  ```js
+  // /api/convert?input=3.1mi
+  // returns the following JSON
+  {initNum: 3.1, initUnit: 'mi', returnNum: 5.0000008, returnUnit: 'km', string: '3.1 miles converts to 5.00002 kilometers'}
+  ```
