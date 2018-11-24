@@ -142,3 +142,32 @@ Working on the front-end version of the application I opted for a smaller subset
 - based on these values, call a function to convert the measure.
 
 The entire process is well-commented in the `script.js` file found in the **FrontEnd** folder. There's some ingenuity there.
+
+## Backend
+
+Considering the back-end perspective of the project, here a few notes on the development conformant to the @freecodecamp requirements.
+
+### Helmet
+
+The first couple of user stories relate to preventing 'sniffing' the MIME type of the application and prevent cross-scripting (XSS) attacks. These features can be achieved with **Helmet.js**.
+
+Once installed, it can be included as any **npm** package.
+
+```js
+const helmet = require("helmet");
+```
+
+Include the following middleware atop the application.
+
+```js
+app.use(helmet());
+```
+
+By 'using' `helmet()` a few security measures are already [included by the package](https://helmetjs.github.io/). Among them `noSniff` is included. `xssFilter` is also detailed. This means including the detailed middleware is enough to cover both user stories.
+
+Theoretically, it is also be possible to set both security measures one at a time, as follows:
+
+```js
+app.use(helmet.noSniff());
+app.use(helmet.xssFilter());
+```
