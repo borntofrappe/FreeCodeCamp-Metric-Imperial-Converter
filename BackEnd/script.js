@@ -48,6 +48,14 @@ app.get('/api/convert', (req, res, next) => {
   }
 });
 
+// 404 Not Found Middleware
+app.use((req, res, next) => {
+  res.status(404)
+    .type('text')
+    .json({
+      error: 'Not Found'
+    });
+});
 
 // listen on the selected port @local host
 app.listen(port);

@@ -2,9 +2,9 @@
 
 > First project of five required to earn the **Information Security and Quality Assurance** certification @freeCodeCamp.
 
-Link to the frontend project right [here](https://codepen.io/borntofrappe/full/BGxpmK).
+Link to the frontend pen right [here](https://codepen.io/borntofrappe/full/BGxpmK).
 
-<!-- Link to the working project right [here]() -->
+Link to the work-in-progress glitch right [here](https://vanilla-laundry.glitch.me/).
 
 ## Preface
 
